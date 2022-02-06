@@ -1,0 +1,11 @@
+.title {
+  text-align: center;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

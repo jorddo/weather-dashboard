@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <link rel="stylesheet" href="./develop/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
   </head>
@@ -18,13 +18,24 @@
     <header>
       <h2>Search for a city:</h2>
       <form>
-        <textarea placeholder="Type city here..."></textarea>
-        <button type="button">Go</button>
+        <textarea class="txt" placeholder="Type city here..."></textarea>
+        <button
+          class="waves-effect waves-light btn #1e88e5 blue darken-1 search-btn"
+          type="button"
+        >
+          Search
+        </button>
       </form>
     </header>
 
     <main></main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./develop/js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

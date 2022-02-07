@@ -5,7 +5,11 @@
 
 header {
   position: fixed;
-  background-color: aliceblue;
+  background-color: rgb(137, 186, 230);
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 form {
@@ -14,9 +18,25 @@ form {
   border-radius: 0.5rem;
 }
 
-.txt {
-}
-
 .search-btn {
   margin-top: 0.5rem;
+}
+
+main {
+  display: flex;
+  width: 100%;
+}
+
+.weather {
+}
+
+.current-section {
+  display: flex;
+}
+
+.current-container {
+  flex-direction: column;
+}
+
+.current-weather {
 }

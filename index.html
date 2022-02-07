@@ -12,23 +12,72 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <h1 class="title">Weather Dashboard</h1>
-
-    <!-- search function -->
     <header>
-      <h2>Search for a city:</h2>
-      <form>
-        <textarea class="txt" placeholder="Type city here..."></textarea>
-        <button
-          class="waves-effect waves-light btn #1e88e5 blue darken-1 search-btn"
-          type="button"
-        >
-          Search
-        </button>
-      </form>
+      <h1 class="title">Weather Dashboard</h1>
     </header>
 
-    <main></main>
+    <main>
+      <aside>
+        <!-- search function -->
+        <h2>Search for a city:</h2>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea
+                  id="textarea1"
+                  class="materialize-textarea"
+                ></textarea>
+                <label for="textarea1">City</label>
+                <button
+                  class="waves-effect waves-light btn #1e88e5 blue darken-1 search-btn"
+                  type="button"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </aside>
+      <!-- current weather box -->
+      <section class="weather">
+        <section class="current-section">
+          <div class="current-container">
+            <div class="name-date">
+              <h3>Austin<span class="date"></span></h3>
+            </div>
+            <div class="current-weather">
+              <p>Temp: 74</p>
+              <p>Wind: 6.67 MPH</p>
+              <p>Humidity: 46%</p>
+              <p>UV Index: 0.47</p>
+            </div>
+          </div>
+        </section>
+        <!-- 5 day weather cards -->
+        <section>
+          <p>
+            Card
+          </p>
+          <p>
+          Card
+          </p>
+          <p>
+          Card
+            <Card></Card>
+          </p>
+          <p>
+          Card
+            <Card></Card>
+          </p>
+          <p>
+          Card
+            <Card></Card>
+          </p>
+        </section>
+      </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"

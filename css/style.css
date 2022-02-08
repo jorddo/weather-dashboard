@@ -55,6 +55,14 @@ main {
   padding-left: 1rem;
 }
 
+.name-date {
+  display: flex;
+}
+
+#current-city {
+  padding-right: 2rem;
+}
+
 .card-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -62,8 +70,9 @@ main {
   margin-right: 5rem;
 }
 
-.text-color {
+.card-text {
   color: white;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 .card-color {

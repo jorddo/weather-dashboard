@@ -1,7 +1,9 @@
-const apiKey = '5487746d0675bbfe431f4c709399c088';
+// global variables
 const searchCity = document.querySelector('.txt');
 const searchButton = document.querySelector('.search-btn');
 const date = document.querySelector('.date');
+const currentCity = document.querySelector('#current-city');
+const apiKey = '5487746d0675bbfe431f4c709399c088';
 const currentDate = moment().format('MMM Do, YYYY');
 
 // write date to page
@@ -33,6 +35,7 @@ function currentWeather() {
           console.log(fiveDayData.daily[0].wind_speed);
           console.log(fiveDayData.daily[0].humidity);
           console.log(fiveDayData.daily[0].uvi);
+          currentCity.textContent = searchCity.value;
         });
     });
 }

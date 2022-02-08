@@ -3,6 +3,10 @@ const searchCity = document.querySelector('.txt');
 const searchButton = document.querySelector('.search-btn');
 const date = document.querySelector('.date');
 const currentCity = document.querySelector('#current-city');
+const currentTemp = document.querySelector('#current-temp');
+const currentWind = document.querySelector('#current-wind');
+const currentHumidity = document.querySelector('#current-humidity');
+const currentUVI = document.querySelector('#current-uvi');
 const apiKey = '5487746d0675bbfe431f4c709399c088';
 const currentDate = moment().format('MMM Do, YYYY');
 
@@ -35,7 +39,18 @@ function currentWeather() {
           console.log(fiveDayData.daily[0].wind_speed);
           console.log(fiveDayData.daily[0].humidity);
           console.log(fiveDayData.daily[0].uvi);
+
+          // writing city name to page
           currentCity.textContent = searchCity.value;
+
+          // writing current values to current weather box
+
+          currentTemp.textContent = `Temp: ${Math.round(
+            fiveDayData.daily[0].temp.day
+          )}\u00b0`;
+          currentWind.textContent = `Wind: ${fiveDayData.daily[0].wind_speed} MPH`;
+          currentHumidity.textContent = `Humidity: ${fiveDayData.daily[0].humidity}`;
+          currentUVI.textContent = `UV Index: ${fiveDayData.daily[0].uvi}`;
         });
     });
 }

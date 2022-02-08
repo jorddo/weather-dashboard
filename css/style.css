@@ -1,15 +1,36 @@
-.title {
-  text-align: center;
-  background-color: aquamarine;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
   position: fixed;
-  background-color: rgb(137, 186, 230);
+  background: linear-gradient(
+    90deg,
+    rgba(89, 115, 238, 1) 0%,
+    rgba(9, 9, 121, 1) 47%,
+    rgba(2, 2, 33, 1) 100%
+  );
   left: 0;
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.search-txt {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.search-btn {
+  margin-top: 0.5rem;
+  width: 100%;
 }
 
 form {
@@ -18,25 +39,37 @@ form {
   border-radius: 0.5rem;
 }
 
-.search-btn {
-  margin-top: 0.5rem;
-}
-
 main {
   display: flex;
   width: 100%;
-}
-
-.weather {
+  padding-top: 140px;
 }
 
 .current-section {
-  display: flex;
+  border-style: solid;
+  border-width: 2px;
+  margin-right: 5rem;
 }
 
 .current-container {
-  flex-direction: column;
+  padding-left: 1rem;
 }
 
-.current-weather {
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
+  margin-right: 5rem;
+}
+
+.text-color {
+  color: white;
+}
+
+.card-color {
+  background-color: #232936;
+}
+
+.card-date {
+  font-weight: bold;
 }

@@ -1,9 +1,11 @@
 const apiKey = '5487746d0675bbfe431f4c709399c088';
 const searchCity = document.querySelector('.txt');
 const searchButton = document.querySelector('.search-btn');
+const date = document.querySelector('.date');
 const currentDate = moment().format('MMM Do, YYYY');
 
-console.log(currentDate);
+// write date to page
+date.innerHTML = currentDate;
 
 function currentWeather() {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=imperial

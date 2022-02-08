@@ -16,10 +16,10 @@
       <h1 class="title">Weather Dashboard</h1>
     </header>
 
-    <main>
-      <aside>
+    <main class="row">
+      <aside class="col s2">
         <!-- search function -->
-        <h2>Search for a city:</h2>
+        <h2 class="search-txt">Search for a city:</h2>
         <div class="row">
           <form class="col s12">
             <div class="row">
@@ -41,11 +41,11 @@
         </div>
       </aside>
       <!-- current weather box -->
-      <section class="weather">
+      <section class="weather col s10">
         <section class="current-section">
           <div class="current-container">
             <div class="name-date">
-              <h3>Austin<span class="date"></span></h3>
+              <h3>Austin (<span class="date"></span>)</h3>
             </div>
             <div class="current-weather">
               <p>Temp: 74</p>
@@ -55,26 +55,43 @@
             </div>
           </div>
         </section>
-        <!-- 5 day weather cards -->
-        <section>
-          <p>
-            Card
-          </p>
-          <p>
-          Card
-          </p>
-          <p>
-          Card
-            <Card></Card>
-          </p>
-          <p>
-          Card
-            <Card></Card>
-          </p>
-          <p>
-          Card
-            <Card></Card>
-          </p>
+        <!-- 5 day weather cards-->
+        <section class="card-wrapper">
+          <div class="card text-color card-color">
+            <p class="card-date">3/31/2021</p>
+            <p>icon</p>
+            <p>Temp: 73 F</p>
+            <p>Wind: 9 MPH</p>
+            <p>Humidity: 66%</p>
+          </div>
+          <div class="card text-color card-color">
+            <p class="card-date">3/31/2021</p>
+            <p>icon</p>
+            <p>Temp: 73 F</p>
+            <p>Wind: 9 MPH</p>
+            <p>Humidity: 66%</p>
+          </div>
+          <div class="card text-color card-color">
+            <p class="card-date">3/31/2021</p>
+            <p>icon</p>
+            <p>Temp: 73 F</p>
+            <p>Wind: 9 MPH</p>
+            <p>Humidity: 66%</p>
+          </div>
+          <div class="card text-color card-color">
+            <p class="card-date">3/31/2021</p>
+            <p>icon</p>
+            <p>Temp: 73 F</p>
+            <p>Wind: 9 MPH</p>
+            <p>Humidity: 66%</p>
+          </div>
+          <div class="card text-color card-color">
+            <p class="card-date">3/31/2021</p>
+            <p>icon</p>
+            <p>Temp: 73 F</p>
+            <p>Wind: 9 MPH</p>
+            <p>Humidity: 66%</p>
+          </div>
         </section>
       </section>
     </main>

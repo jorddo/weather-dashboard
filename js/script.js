@@ -22,6 +22,16 @@ searchCity.addEventListener('keyup', function (event) {
   }
 });
 
+function storeSearch() {
+  const arr = [];
+
+  for (let i = 0; i < searchCity.length; i++) {
+    arr.push(searchCity[i].value);
+  }
+
+  localStorage.setItem('search', JSON.stringify(arr));
+}
+
 function currentWeather() {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=imperial
   `)
@@ -73,4 +83,5 @@ function currentWeather() {
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   currentWeather();
+  storeSearch();
 });

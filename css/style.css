@@ -70,6 +70,12 @@ main {
   margin-right: 5rem;
 }
 
+@media only screen and (max-width: 769px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card-text {
   color: white;
   padding: 0 0.5rem 0 0.5rem;

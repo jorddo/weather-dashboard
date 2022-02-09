@@ -29,7 +29,6 @@ function currentWeather() {
       return response.json();
     })
     .then(function (currentData) {
-      console.log(currentData);
       fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&exclude={part}&units=imperial&appid=${apiKey}`
       )
@@ -37,14 +36,6 @@ function currentWeather() {
           return response.json();
         })
         .then(function (fiveDayData) {
-          console.log(fiveDayData);
-          console.log(
-            moment(fiveDayData.daily[0].dt, 'X').format('MM/DD/YYYY')
-          );
-          console.log(
-            `http://openweathermap.org/img/wn/${fiveDayData.daily[0].weather[0].icon}@2x.png`
-          );
-
           // writing city name to page
           currentCity.textContent = searchCity.value;
 
@@ -59,18 +50,22 @@ function currentWeather() {
 
           // writing values to 5 day forecast cards
           const cards = document.querySelectorAll('.card');
-          const cardDate = document.querySelector('.card-date');
-          const cardIcon = document.querySelector('.card-icon');
-          const cardTemp = document.querySelector('.card-temp');
 
-          for (let i = 1; i < cards.length - 2; i++) {
+          for (let i = 1; i < cards.length + 1; i++) {
+            const cardIcon = cards[i - 1].querySelector('img');
+            const cardDate = cards[i - 1].querySelector('.card-date');
+            const cardTemp = cards[i - 1].querySelector('.card-temp');
+            const cardWind = cards[i - 1].querySelector('.card-wind');
+            const cardHumidity = cards[i - 1].querySelector('.card-humidity');
             cardDate.textContent = moment(fiveDayData.daily[i].dt, 'X').format(
               'MM/DD/YYYY'
             );
-            // cardIcon.src = `http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[i].icon}@2x.png`;
+            cardIcon.src = `http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[0].icon}@2x.png`;
             cardTemp.textContent = `Temp: ${Math.round(
               fiveDayData.daily[i].temp.day
             )}\u00b0`;
+            cardWind.textContent = `Wind: ${fiveDayData.daily[i].wind_speed} MPH`;
+            cardHumidity.textContent = `Humidity: ${fiveDayData.daily[i].humidity}`;
           }
         });
     });

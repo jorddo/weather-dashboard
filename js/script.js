@@ -58,6 +58,20 @@ function currentWeather() {
           currentUVI.textContent = `UV Index: ${fiveDayData.daily[0].uvi}`;
 
           // writing values to 5 day forecast cards
+          const cards = document.querySelectorAll('.card');
+          const cardDate = document.querySelector('.card-date');
+          const cardIcon = document.querySelector('.card-icon');
+          const cardTemp = document.querySelector('.card-temp');
+
+          for (let i = 1; i < cards.length - 2; i++) {
+            cardDate.textContent = moment(fiveDayData.daily[i].dt, 'X').format(
+              'MM/DD/YYYY'
+            );
+            // cardIcon.src = `http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[i].icon}@2x.png`;
+            cardTemp.textContent = `Temp: ${Math.round(
+              fiveDayData.daily[i].temp.day
+            )}\u00b0`;
+          }
         });
     });
 }

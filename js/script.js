@@ -22,14 +22,27 @@ searchCity.addEventListener('keyup', function (event) {
   }
 });
 
+// clear text area
+function refreshText() {
+  searchCity.value = '';
+}
+
+// store past searches to local storage
 function storeSearch() {
-  const arr = [];
+  // grab current version of local storage
+  const storage = JSON.parse(localStorage.getItem('search'));
+  const cityInput = searchCity.value;
 
-  for (let i = 0; i < searchCity.length; i++) {
-    arr.push(searchCity[i].value);
+  if (storage) {
+    // const cityInput = searchCity.value;
+    storage.push(cityInput);
+    localStorage.setItem('search', JSON.stringify(storage));
+  } else {
+    const cityArr = [];
+    // const cityInput = searchCity.value;
+    cityArr.push(cityInput);
+    localStorage.setItem('search', JSON.stringify(cityArr));
   }
-
-  localStorage.setItem('search', JSON.stringify(arr));
 }
 
 function currentWeather() {
@@ -84,4 +97,5 @@ searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   currentWeather();
   storeSearch();
+  refreshText();
 });

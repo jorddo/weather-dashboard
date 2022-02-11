@@ -8,6 +8,7 @@ const currentTemp = document.querySelector('#current-temp');
 const currentWind = document.querySelector('#current-wind');
 const currentHumidity = document.querySelector('#current-humidity');
 const currentUVI = document.querySelector('#current-uvi');
+const pastSearch = document.querySelector('#search-history');
 const apiKey = '5487746d0675bbfe431f4c709399c088';
 const currentDate = moment().format('MMM Do, YYYY');
 
@@ -22,10 +23,10 @@ searchCity.addEventListener('keyup', function (event) {
   }
 });
 
-// clear text area
-function refreshText() {
-  searchCity.value = '';
-}
+// // clear text area WHERE TO PUT THIS?
+// function refreshText() {
+//   searchCity.value = '';
+// }
 
 // store past searches to local storage
 function storeSearch() {

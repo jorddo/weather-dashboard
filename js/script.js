@@ -53,21 +53,27 @@ function storeSearch() {
 
 function displaySearches() {
   const pastStorage = getStorage();
+
   const pastButtonContainer = document.querySelector('#search-history');
+
   pastButtonContainer.textContent = '';
   for (let i = 0; i < pastStorage.length; i++) {
     const pastButton = document.createElement('button');
     pastButton.type = 'button';
     pastButton.className +=
       'waves-effect waves-light btn #1e88e5 blue darken-1 search-btn';
-    // pastButton.addEventListener('click', currentWeather());
+    pastButton.addEventListener('click', function (event) {
+      currentWeather(event.target.textContent);
+      currentCity.textContent = event.target.textContent;
+      event.preventDefault();
+    });
     pastButton.textContent = pastStorage[i];
     pastButtonContainer.appendChild(pastButton);
   }
 }
 
-function currentWeather() {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=imperial
+function currentWeather(passValue) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${passValue}&appid=${apiKey}&units=imperial
   `)
     .then(function (response) {
       return response.json();
@@ -117,8 +123,9 @@ function currentWeather() {
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
-  currentWeather();
+  currentWeather(searchCity.value);
   storeSearch();
+  console.log(event.target.textContent);
   // refreshText();
 });
 

@@ -8,6 +8,7 @@ const currentTemp = document.querySelector('#current-temp');
 const currentWind = document.querySelector('#current-wind');
 const currentHumidity = document.querySelector('#current-humidity');
 const currentUVI = document.querySelector('#current-uvi');
+
 const apiKey = '5487746d0675bbfe431f4c709399c088';
 const currentDate = moment().format('MMM Do, YYYY');
 
@@ -22,15 +23,20 @@ searchCity.addEventListener('keyup', function (event) {
   }
 });
 
-// clear text area
-function refreshText() {
-  searchCity.value = '';
+// // clear text area NOT SURE WHAT TO DO HERE - THIS DELETES CITY NAME ON PAGE TOO
+// function refreshText() {
+//   searchCity.value = '';
+// }
+
+// grab storage
+function getStorage() {
+  return JSON.parse(localStorage.getItem('search')) || [];
 }
 
 // store past searches to local storage
 function storeSearch() {
   // grab current version of local storage
-  const storage = JSON.parse(localStorage.getItem('search'));
+  const storage = getStorage();
   const cityInput = searchCity.value;
 
   if (storage) {
@@ -42,6 +48,21 @@ function storeSearch() {
     // const cityInput = searchCity.value;
     cityArr.push(cityInput);
     localStorage.setItem('search', JSON.stringify(cityArr));
+  }
+}
+
+function displaySearches() {
+  const pastStorage = getStorage();
+  const pastButtonContainer = document.querySelector('#search-history');
+  pastButtonContainer.textContent = '';
+  for (let i = 0; i < pastStorage.length; i++) {
+    const pastButton = document.createElement('button');
+    pastButton.type = 'button';
+    pastButton.className +=
+      'waves-effect waves-light btn #1e88e5 blue darken-1 search-btn';
+    // pastButton.addEventListener('click', currentWeather());
+    pastButton.textContent = pastStorage[i];
+    pastButtonContainer.appendChild(pastButton);
   }
 }
 
@@ -93,9 +114,12 @@ function currentWeather() {
         });
     });
 }
+
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   currentWeather();
   storeSearch();
-  refreshText();
+  // refreshText();
 });
+
+displaySearches();
